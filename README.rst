@@ -1,36 +1,46 @@
-======
-iSATex
-======
+# iSATex
+iSATex is an ideal software package for all uses of Raman microscope and/or FT-IR.
+Open-source-software development from the researcher’s perspectives would be complementary with the development of the modern analytical geosciences.
 
+# DEMO
 
-.. image:: https://img.shields.io/pypi/v/isatex.svg
-        :target: https://pypi.python.org/pypi/isatex
+![demo](https://raw.github.com/wiki/ryoTd0112/iSATex/images/iSATexDemo.gif)
 
-.. image:: https://img.shields.io/travis/ryoTd0112/isatex.svg
-        :target: https://travis-ci.com/ryoTd0112/isatex
+# Features
 
-.. image:: https://readthedocs.org/projects/isatex/badge/?version=latest
-        :target: https://isatex.readthedocs.io/en/latest/?badge=latest
-        :alt: Documentation Status
+iSATex has been developed to make it easier to use and share the up-to-date spectrum
+processing. To achieve this objective, I consider it necessary to have the following features.
 
+* Easy for anyone to use
+* Scalability to meet various needs
+* Expansion is sharable
 
-.. image:: https://pyup.io/repos/github/ryoTd0112/isatex/shield.svg
-     :target: https://pyup.io/repos/github/ryoTd0112/isatex/
-     :alt: Updates
+# Requirement
 
+* keyboard==0.13.5
+* matplotlib==3.3.3
+* numpy==1.19.5
+* scipy==1.6.0
+* wxPython==4.1.1
 
+# Installation
 
-iSATex is an ideal software package for all uses of Raman microscope and/or FT-IR. Open-source-software development from the researcher’s perspectives would be complementary with the development of the modern analytical geosciences.
+```bash
+pip install matplotlib, wxPython, scipy, keyboard
+```
 
+# Usage
 
-* Free software: MIT license
-* Documentation: https://isatex.readthedocs.io.
+```bash
+git clone https://github.com/ryoTd0112/iSATex
+cd src
+python main.py
+```
 
+# License
 
-Features
---------
+"iSATex" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
 
-* TODO
 
 Credits
 -------

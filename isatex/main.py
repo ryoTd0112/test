@@ -1,8 +1,6 @@
+import sys
 from logging import DEBUG, WARNING, FileHandler, getLogger
 from typing import Any
-
-from wx import (EVT_MENU, EVT_MENU_OPEN, ID_CLOSE, ICON_NONE, App, Frame,
-                LogError, NewIdRef, wxEVT_CLOSE_WINDOW)
 
 from const import (APPLICATION_NAME, COLOR_MANAGER, COLOR_THEME_LIST,
                    DATA_BUFFER_SIZE, DATA_MANAGER, DECODE_ENCODING,
@@ -29,6 +27,8 @@ from manager import (ColorManager, DataManager, DecodeManager, EncodeManager,
 from objects import (PeakType, SpectrumFunctionContainerAccessor,
                      SpectrumFunctionContainerBase)
 from util import DotChain, DotNotationDict, Singleton
+from wx import (EVT_MENU, EVT_MENU_OPEN, ICON_NONE, ID_CLOSE, App, Frame,
+                LogError, NewIdRef, wxEVT_CLOSE_WINDOW)
 
 logger = getLogger(__name__)
 logger.setLevel(DEBUG)
@@ -61,9 +61,11 @@ class CoreManager(Singleton):
         self.__main_window = MainWindow(self, parent=None, size=window_size)
 
         self.__public_mgr_dict = self.__CreatePublicManager()
-        self.__temp_setting[MANAGER_LIST] = lambda: list(self.__public_mgr_dict.values())
+        self.__temp_setting[MANAGER_LIST] = lambda: list(
+            self.__public_mgr_dict.values())
 
-        SpectrumFunctionContainerBase.data_accessor = SpectrumFunctionContainerAccessor(self.Get(DATA_MANAGER), self.Get(PEAK_MANAGER))
+        SpectrumFunctionContainerBase.data_accessor = SpectrumFunctionContainerAccessor(
+            self.Get(DATA_MANAGER), self.Get(PEAK_MANAGER))
         self.__InitializePublicManagers()
         self.__RestoreStorableObjSetting()
 
@@ -79,7 +81,8 @@ class CoreManager(Singleton):
         """
         logger.info('launch app.')
 
-        menubar_design = self.Get(MENUBAR_MANAGER).GetMenubarDesign() if menubar_design is None else menubar_design
+        menubar_design = self.Get(MENUBAR_MANAGER).GetMenubarDesign(
+        ) if menubar_design is None else menubar_design
         menubar = self.Get(MENUBAR_MANAGER).CreateMenubar(menubar_design)
         self.__main_window.SetMenuBar(menubar)
         self.__main_window.Show()
@@ -89,7 +92,8 @@ class CoreManager(Singleton):
         try:
             self.__app.MainLoop()
         except Exception as e:
-            LogError('The application did not terminate successfully.\nPlease check the log file.')
+            LogError(
+                'The application did not terminate successfully.\nPlease check the log file.')
             logger.error(e)
 
         logger.info('end app.')
@@ -171,7 +175,8 @@ class CoreManager(Singleton):
         )
         public_mgr_dict = {}
         for key, mgr in design:
-            public_mgr_dict[key] = mgr(core_manager=self, io_manager=self.__io_mgr)
+            public_mgr_dict[key] = mgr(
+                core_manager=self, io_manager=self.__io_mgr)
 
         return public_mgr_dict
 
@@ -183,15 +188,21 @@ class CoreManager(Singleton):
 
         # Create the necessary instances for the setting
         event_list = self.__io_mgr.GetSetting(EVENT_LIST)
-        spectrum_preset_list = self.__io_mgr.GetSetting(SPECTRUM_FUNCTION_PRESET_LIST)
-        function_list = [FuncClass() for FuncClass in self.__io_mgr.GetSetting(FUNCTION_CLASS_LIST)]
-        peak_function_list = list(sorted([PeakFunc() for PeakFunc in self.__io_mgr.GetSetting(PEAK_FUNCTION_CLASS_LIST, [])], key=lambda x: x.__class__.__name__))
+        spectrum_preset_list = self.__io_mgr.GetSetting(
+            SPECTRUM_FUNCTION_PRESET_LIST)
+        function_list = [
+            FuncClass() for FuncClass in self.__io_mgr.GetSetting(FUNCTION_CLASS_LIST)]
+        peak_function_list = list(sorted([PeakFunc() for PeakFunc in self.__io_mgr.GetSetting(
+            PEAK_FUNCTION_CLASS_LIST, [])], key=lambda x: x.__class__.__name__))
         peak_type_list = [PeakType(peak) for peak in peak_function_list]
         peak_type = self.__io_mgr.GetSetting(PEAK_TYPE)
         data_buffer_size = self.__io_mgr.GetSetting(DATA_BUFFER_SIZE)
-        selected_encode_func = self.__io_mgr.GetSetting(SELECTED_ENCODE_FUNCTION)
-        selected_decode_func = self.__io_mgr.GetSetting(SELECTED_DECODE_FUNCTION)
-        selected_mapping_func = self.__io_mgr.GetSetting(SELECTED_MAPPING_FUNCTION)
+        selected_encode_func = self.__io_mgr.GetSetting(
+            SELECTED_ENCODE_FUNCTION)
+        selected_decode_func = self.__io_mgr.GetSetting(
+            SELECTED_DECODE_FUNCTION)
+        selected_mapping_func = self.__io_mgr.GetSetting(
+            SELECTED_MAPPING_FUNCTION)
         encode_encoding = self.__io_mgr.GetSetting(ENCODE_ENCODING)
         encode_delimiter = self.__io_mgr.GetSetting(ENCODE_DELIMITER)
         decode_encoding = self.__io_mgr.GetSetting(DECODE_ENCODING)
@@ -381,6 +392,24 @@ def iSATex(setting_file_path: str = SETTING_FILE_PATH):
     """
     manager = Manager(setting_file_path=setting_file_path)
     manager.Launch()
+
+
+def ConsoleLaunch():
+
+    msg = """
+    usage: iSATex [setting_file_path]
+
+        setting_file_path: Absolute path to the configuration file or relative path from main.py. If not specified, the default value "./setting.json".
+    """
+    print(sys.argv)
+    if len(sys.argv) == 1:
+        sys.argv.append(SETTING_FILE_PATH)
+
+    if len(sys.argv) != 2:
+        print(msg)
+        return
+
+    iSATex(sys.argv[1])
 
 
 __all__ = [

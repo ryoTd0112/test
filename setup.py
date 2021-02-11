@@ -3,6 +3,7 @@
 """The setup script."""
 
 from setuptools import setup, find_packages
+import isatex
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -11,22 +12,15 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
-    cycler,
-    keyboard,
-    kiwisolver,
-    matplotlib,
-    numpy,
-    Pillow,
-    pyparsing,
-    python-dateutil,
-    scipy,
-    six,
-    wxPython,
+    'keyboard',
+    'matplotlib',
+    'scipy',
+    'wxPython',
 ]
 
-setup_requirements = [ ]
+setup_requirements = []
 
-test_requirements = [ ]
+test_requirements = []
 
 description = "iSATex is an ideal software package for all uses of Raman microscope and/or FT-IR. Open-source-software development from the researcher’s perspectives would be complementary with the development of the modern analytical geosciences."
 
@@ -54,9 +48,11 @@ setup(
     name='isatex',
     packages=find_packages(include=['isatex', 'isatex.*']),
     setup_requires=setup_requirements,
-    test_suite='tests',
-    tests_require=test_requirements,
     url='https://github.com/ryoTd0112/isatex',
-    version='1.0.0',
+    version=isatex.__version__,
     zip_safe=False,
+    entry_points="""
+    [console_scripts]
+    iSATex = isatex.main:ConsoleLaunch
+    """
 )

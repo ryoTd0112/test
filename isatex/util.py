@@ -493,12 +493,3 @@ if __name__ == "__main__":
         },
     }
     dotdict = DotNotationDict(test_data)
-
-    # print('PROJECT' in dotdict)
-    # print('PROJECT.DATA' in dotdict)
-    # print('PROJECT.NAME.NEXT' in dotdict)
-    # print('PROJECT.PATH.PREVIOUS' in dotdict)
-
-    # print('PROJECT.PATH.NEXT' in dotdict)
-    # print('PROJECT.DATA.LIST.NEXT.PIYO' in dotdict)
-    # print('PROJECT.DATA.NEXT' in dotdict)
