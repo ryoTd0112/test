@@ -8,7 +8,6 @@ Open-source-software development from the researcher’s perspectives would be c
 DEMO
 =============
 
-![demo](https://raw.github.com/wiki/ryoTd0112/iSATex/images/iSATexDemo.gif)
 .. image:: https://raw.github.com/wiki/ryoTd0112/iSATex/images/iSATexDemo.gif
     :alt: alt demo
 
@@ -35,12 +34,14 @@ Installation
 =============
 
 ::
+
     pip install matplotlib, wxPython, scipy, keyboard
 
 Usage
 =============
 
 ::
+
     git clone https://github.com/ryoTd0112/iSATex
     cd src
     python main.py
