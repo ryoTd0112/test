@@ -9,6 +9,8 @@ DEMO
 =============
 
 ![demo](https://raw.github.com/wiki/ryoTd0112/iSATex/images/iSATexDemo.gif)
+.. image:: https://raw.github.com/wiki/ryoTd0112/iSATex/images/iSATexDemo.gif
+    :alt: alt demo
 
 Features
 =============
@@ -32,23 +34,21 @@ Requirement
 Installation
 =============
 
-```bash
-pip install matplotlib, wxPython, scipy, keyboard
-```
+::
+    pip install matplotlib, wxPython, scipy, keyboard
 
 Usage
 =============
 
-```bash
-git clone https://github.com/ryoTd0112/iSATex
-cd src
-python main.py
-```
+::
+    git clone https://github.com/ryoTd0112/iSATex
+    cd src
+    python main.py
 
 License
 =============
 
-"iSATex" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+"iSATex" is under .. MIT license: https://en.wikipedia.org/wiki/MIT_License .
 
 
 Credits
