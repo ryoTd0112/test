@@ -49,7 +49,7 @@ Usage
 License
 =============
 
-"iSATex" is under .. MIT license: https://en.wikipedia.org/wiki/MIT_License .
+"iSATex" is under .. _MIT license: https://en.wikipedia.org/wiki/MIT_License .
 
 
 Credits
