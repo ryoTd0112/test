@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from math import isclose
 
 from numpy import (array, count_nonzero, inf, linspace, ndarray, newaxis, ones,

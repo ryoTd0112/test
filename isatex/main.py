@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import sys
 from logging import DEBUG, WARNING, FileHandler, getLogger
 from typing import Any

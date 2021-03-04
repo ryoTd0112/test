@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from math import floor, isclose
 from os.path import basename
 

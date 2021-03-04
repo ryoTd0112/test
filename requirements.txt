@@ -1,0 +1,4 @@
+matplotlib
+wxPython
+keyboard
+scipy

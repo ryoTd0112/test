@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """Top-level package for iSATex."""
 
 __author__ = """Ryo Tandai"""

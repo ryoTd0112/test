@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from abc import abstractmethod
 from collections import deque
 from copy import deepcopy

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from numpy import exp, log
 
 from objects import FloatContainer, PeakFunctionContainerBase

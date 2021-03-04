@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from numpy import array, inf
 
 from objects import MappingFunctionContainerBase

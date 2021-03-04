@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from collections import deque
 from os.path import basename, splitext
 from typing import Any, Iterable, List, Tuple

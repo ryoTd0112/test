@@ -11,12 +11,8 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = [
-    'keyboard',
-    'matplotlib',
-    'scipy',
-    'wxPython',
-]
+with open('requirements.txt') as requirements_file:
+    requirements = requirements_file.readlines()
 
 setup_requirements = []
 
@@ -42,14 +38,16 @@ setup(
     description="iSATex is an ideal software package for all uses of Raman microscope and/or FT-IR. Open-source-software development from the researcher’s perspectives would be complementary with the development of the modern analytical geosciences.",
     install_requires=requirements,
     license="MIT license",
-    long_description=readme + '\n\n' + history,
+    long_description=readme,
+    long_description_content_type='text/x-rst',
     include_package_data=True,
     keywords='isatex',
     name='isatex',
     packages=find_packages(include=['isatex', 'isatex.*']),
     setup_requires=setup_requirements,
     url='https://github.com/ryoTd0112/isatex',
-    version=isatex.__version__,
+    # version=isatex.__version__,
+    version='1.0.2',
     zip_safe=False,
     entry_points="""
     [console_scripts]

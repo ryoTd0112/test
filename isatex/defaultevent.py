@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from copy import deepcopy
 from datetime import date
 from os.path import dirname, isdir
